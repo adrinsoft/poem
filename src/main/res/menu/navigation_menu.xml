@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+    <item android:id="@+id/setting_app" android:title="تنظیمات" android:icon="@drawable/setting_nav"/>
+    <item android:id="@+id/contact_us" android:title="تماس با ما" android:icon="@drawable/ccontact_nav"/>
+<group>
+    <item android:id="@+id/share_app" android:title="اشتراک گذاری" android:icon="@drawable/share_nav"/>
+</group>
+</menu>

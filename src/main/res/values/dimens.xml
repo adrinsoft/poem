@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <dimen name="standard_margin">16dp</dimen>
+    <dimen name="standard_elevation">5dp</dimen>
+    <dimen name="standard_radius_card">9dp</dimen>
+</resources>

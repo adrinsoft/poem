@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_marginRight="@dimen/standard_margin"
+    android:layout_marginLeft="@dimen/standard_margin"
+    android:layout_marginTop="4dp"
+    android:layout_marginBottom="4dp"
+    app:cardElevation="@dimen/standard_elevation"
+    app:cardCornerRadius="@dimen/standard_radius_card">
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:foreground="?attr/selectableItemBackground"
+        android:padding="@dimen/standard_margin"
+        android:layout_marginTop="10dp"
+        android:layout_marginBottom="10dp">
+        <ImageButton
+            android:id="@+id/pic_poet_img"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/standard_margin"
+            android:layout_marginBottom="@dimen/standard_margin"
+            android:adjustViewBounds="true"
+            />
+        <TextView
+            android:id="@+id/name_poet_title"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:paddingRight="@dimen/standard_margin"
+            android:paddingBottom="@dimen/standard_margin"
+            android:paddingLeft="@dimen/standard_margin"
+            android:layout_below="@id/pic_poet_img"
+            android:gravity="right"
+            />
+
+
+    </RelativeLayout>
+
+</androidx.cardview.widget.CardView>
