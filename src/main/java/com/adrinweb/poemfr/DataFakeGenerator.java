@@ -17,6 +17,7 @@ public class DataFakeGenerator {
                 case 1:
                     post.setImage(ResourcesCompat.getDrawable(context.getResources(),R.drawable.anvari,null));
                     post.setTitle("انوری");
+                    post.setPoetId(1);
                     break;
                 case 2:
                     post.setImage(ResourcesCompat.getDrawable(context.getResources(),R.drawable.attar,null));

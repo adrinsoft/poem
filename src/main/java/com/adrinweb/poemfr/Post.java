@@ -6,6 +6,9 @@ public class Post {
     private int id;
     private Drawable image;
     private String title;
+    private int poetId;
+
+
 
     public Drawable getImage() {
         return image;
@@ -29,5 +32,13 @@ public class Post {
 
     public void setTitle(String title) {
         this.title = title;
+    }
+
+    public int getPoetId() {
+        return poetId;
+    }
+
+    public void setPoetId(int poetId) {
+        this.poetId = poetId;
     }
 }

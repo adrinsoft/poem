@@ -4,33 +4,52 @@ import androidx.annotation.NonNull;
 import androidx.appcompat.app.ActionBar;
 import androidx.appcompat.app.ActionBarDrawerToggle;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.coordinatorlayout.widget.CoordinatorLayout;
+import androidx.core.content.res.ResourcesCompat;
 import androidx.drawerlayout.widget.DrawerLayout;
 import androidx.recyclerview.widget.GridLayoutManager;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
-
 import android.content.Context;
 import android.content.Intent;
+import android.graphics.Typeface;
+import android.os.Build;
 import android.os.Bundle;
 import android.view.MenuItem;
-import android.widget.LinearLayout;
+import android.view.View;
+import android.widget.TextView;
 
 
 import com.google.android.material.navigation.NavigationView;
+import com.google.android.material.snackbar.Snackbar;
 
 
 public class MainActivity extends AppCompatActivity {
-
+ private Typeface typeface;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+      //  typeface=Typeface.createFromAsset(getAssets(), "font/yekan.ttf");
+        if(Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
+            this.typeface = getResources().getFont(R.font.irannastaliq);
+        } else {
+            this.typeface = ResourcesCompat.getFont(this, R.font.irannastaliq );
+        }
+
         RecyclerView recyclerView=(RecyclerView) findViewById(R.id.recycler_view);
         NewsAdapter newsAdapter=new NewsAdapter(this,DataFakeGenerator.getData(this));
         recyclerView.setLayoutManager(new GridLayoutManager(this,2,LinearLayoutManager.VERTICAL,false));
         recyclerView.setAdapter(newsAdapter);
         setupToolbar();
         setupNavigationView(this);
+        CoordinatorLayout coordinatorLayout=(CoordinatorLayout) findViewById(R.id.coordinator_layout_main);
+        Snackbar.make(coordinatorLayout,"عدم اتصال به اینترنت !!!",Snackbar.LENGTH_LONG).setAction("تلاش مجدد", new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+            }
+        }).show();
 
 
     }
@@ -42,7 +61,7 @@ public class MainActivity extends AppCompatActivity {
             public boolean onNavigationItemSelected(@NonNull MenuItem menuItem) {
                 switch (menuItem.getItemId()){
                     case R.id.setting_app:
-                        startActivity(new Intent(MainActivity.this,setting.class));
+                        startActivity(new Intent(MainActivity.this,text.class));
                         break;
                     case R.id.contact_us:
                         startActivity(new Intent(MainActivity.this,about_us.class));
@@ -74,6 +93,11 @@ public class MainActivity extends AppCompatActivity {
         ActionBarDrawerToggle drawerToggle=new ActionBarDrawerToggle(this,drawerLayout,toolbar,0,0);
         drawerLayout.addDrawerListener(drawerToggle);
         drawerToggle.syncState();
+        for (int i = 0; i < toolbar.getChildCount(); i++) {
+            if (toolbar.getChildAt(i) instanceof TextView){
+                ((TextView) toolbar.getChildAt(i)).setTypeface(typeface);
+            }
+        }
 
     }
 
