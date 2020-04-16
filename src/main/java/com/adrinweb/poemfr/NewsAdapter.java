@@ -54,7 +54,7 @@ public class NewsAdapter extends RecyclerView.Adapter<NewsAdapter.NewsViewHolder
             );
         }
         private void showPoem(){
-            Toast.makeText(context,"Essi Jende",Toast.LENGTH_LONG).show();
+            Toast.makeText(context,"Poet Id: " + poetId ,Toast.LENGTH_LONG).show();
         }
     }
 

@@ -9,7 +9,6 @@ public class Post {
     private int poetId;
 
 
-
     public Drawable getImage() {
         return image;
     }
