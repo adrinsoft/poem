@@ -1,6 +1,9 @@
 package com.adrinweb.poemfr;
 
 import android.content.Context;
+import android.content.res.AssetManager;
+import android.graphics.Typeface;
+import android.os.Build;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -10,12 +13,15 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
+import androidx.core.content.res.ResourcesCompat;
 import androidx.recyclerview.widget.RecyclerView;
 import java.util.List;
 
 public class NewsAdapter extends RecyclerView.Adapter<NewsAdapter.NewsViewHolder> {
     private Context context;
     private List<Post> posts;
+    private Typeface typeface;
     public  NewsAdapter(Context context, List<Post> posts){
         this.context = context;
         this.posts = posts;
@@ -29,8 +35,14 @@ public class NewsAdapter extends RecyclerView.Adapter<NewsAdapter.NewsViewHolder
     public void onBindViewHolder(@NonNull NewsViewHolder holder, int position) {
         Post post=posts.get(position);
         holder.picImg.setImageDrawable(post.getImage());
-        holder.poetName.setText(post.getTitle());
         holder.poetId = post.getPoetId();
+        if(Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
+            this.typeface = context.getResources().getFont(R.font.irannastaliq);
+        } else {
+            this.typeface = ResourcesCompat.getFont(context, R.font.irannastaliq );
+        }
+        holder.poetName.setTypeface(typeface);
+        holder.poetName.setText(post.getTitle());
     }
     @Override
     public int getItemCount() {
@@ -39,8 +51,8 @@ public class NewsAdapter extends RecyclerView.Adapter<NewsAdapter.NewsViewHolder
 
     public class NewsViewHolder extends RecyclerView.ViewHolder{
         private ImageButton picImg;
-         private TextView poetName;
-         private int poetId;
+        private TextView poetName;
+        private int poetId;
         public NewsViewHolder(@NonNull View itemView) {
                 super(itemView);
             poetName = (TextView) itemView.findViewById(R.id.name_poet_title);

@@ -33,6 +33,7 @@
             android:paddingLeft="@dimen/standard_margin"
             android:layout_below="@id/pic_poet_img"
             android:gravity="right"
+            android:textSize="22dp"
             />
 
 

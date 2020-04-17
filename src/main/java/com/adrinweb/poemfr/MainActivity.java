@@ -13,8 +13,12 @@ import androidx.recyclerview.widget.RecyclerView;
 import android.content.Context;
 import android.content.Intent;
 import android.graphics.Typeface;
+import android.net.ConnectivityManager;
+import android.net.Network;
+import android.net.NetworkInfo;
 import android.os.Build;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.TextView;
@@ -26,6 +30,7 @@ import com.google.android.material.snackbar.Snackbar;
 
 public class MainActivity extends AppCompatActivity {
  private Typeface typeface;
+    private static final String DEBUG_TAG = "NetworkStatusExample";
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -52,7 +57,10 @@ public class MainActivity extends AppCompatActivity {
         }).show();
 
 
+
     }
+
+
 
     private void setupNavigationView(final Context context) {
         NavigationView navigationView=(NavigationView) findViewById(R.id.navigation_view);
